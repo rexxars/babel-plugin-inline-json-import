@@ -29,7 +29,7 @@
     "watch": "tsc --watch",
     "pretest": "npm run build",
     "test": "mocha",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build && mocha"
   },
   "repository": {
     "type": "git",
