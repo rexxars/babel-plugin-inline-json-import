@@ -1,10 +1,6 @@
-# babel-plugin-inline-json-import
+# @rexxars/babel-plugin-inline-json-import
 
-[![NPM](https://nodei.co/npm/babel-plugin-inline-json-import.png?downloads=true&stars=true)](https://npmjs.org/package/babel-plugin-inline-json-import)
-
-[![Build Status](https://travis-ci.org/yggie/babel-plugin-inline-json-import.svg?branch=master)](https://travis-ci.org/yggie/babel-plugin-inline-json-import)
-
-A babel pre-processor that inlines all imports of JSON files straight into your
+A babel plugin that inlines all imports of JSON files straight into your
 JavaScript files.
 
 ## Example
@@ -51,15 +47,14 @@ Install the plugin through `npm`, you will also need `babel` installed for
 obvious reasons:
 
 ```sh
-$ npm install --save-dev babel-plugin-inline-json-import
+$ npm install --save-dev @rexxars/babel-plugin-inline-json-import
 ```
 
-Add `babel-plugin-inline-json-import` to the list of plugins. If you are using a
-`.babelrc` file, the file should have an entry that looks like this:
+Add `@rexxars/babel-plugin-inline-json-import` to the list of plugins. If you are using a `.babelrc` file, the file should have an entry that looks like this:
 
 ```json
 {
-  "plugins": ["inline-json-import"]
+  "plugins": ["@rexxars/inline-json-import"]
 }
 ```
 
@@ -71,7 +66,7 @@ This should work straight out of the box. You can configure a `RegExp` pattern y
 {
   "plugins": [
     [
-      "inline-json-import",
+      "@rexxars/inline-json-import",
       {
         "match": "/package.json$",
         "matchFlags": "i"
@@ -88,6 +83,18 @@ This should work straight out of the box. You can configure a `RegExp` pattern y
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request =)
+
+## Fork modifications
+
+This module was originally made by [Bryan Yap](https://github.com/yggie), and has been forked in order to provide the following improvements:
+
+- Inlining of only destructured items where possible
+- Rewritten imports now correctly appear _after_ other imports
+- Configurable RegExp for specifying which files to inline
+- Handles certain "exotic" import styles without crashing
+- Handles loading of JSON files from `node_modules`
+
+All modifications were [contributed upstream](https://github.com/yggie/babel-plugin-inline-json-import/pull/17) and is awaiting review at the time of writing.
 
 ## License
 
